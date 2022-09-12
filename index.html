@@ -1,50 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>JavaScript example</title>
-		<meta charSet="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<style media="only screen">
-            html, body {
-                height: 100%;
-                width: 100%;
-                margin: 0;
-                box-sizing: border-box;
-                -webkit-overflow-scrolling: touch;
-            }
+  <head>
+    <title>JavaScript example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style media="only screen">
+      /* for Chrome browser  */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background-color: #f5f5f5;
+      }
 
-            html {
-                position: absolute;
-                top: 0;
-                left: 0;
-                padding: 0;
-                overflow: auto;
-            }
+      ::-webkit-scrollbar-thumb {
+        background-color: #888888;
+      }
 
-            body {
-                padding: 1rem;
-                overflow: auto;
-            }
-        </style>
-		<link rel="stylesheet" href="styles.css"/>
-	</head>
-	<body>
-		<div class="example-wrapper">
-			<div style="margin-bottom: 5px">
-				<button onclick="onFlushTransactions()">Flush Transactions</button>
-				<span id="eMessage">
-				</span>
-			</div>
-			<div id="myGrid" class="ag-theme-alpine">
-			</div>
-		</div>
-		<script>var __basePath = './';</script>
-		<script src="https://unpkg.com/ag-grid-enterprise@28.1.3/dist/ag-grid-enterprise.min.js">
-		</script>
-		<script src="data.js">
-		</script>
-		<script src="main.js">
-		</script>
-	</body>
-	<link rel="stylesheet" href="styles.css"/>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      html {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0;
+        overflow: auto;
+      }
+
+      body {
+        padding: 0rem;
+        overflow: auto;
+      }
+      button {
+        border-radius: 4px;
+        color: #fff;
+        border-color: #1890ff;
+        background: #1890ff;
+        text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+        box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+
+        line-height: 1.5715;
+        position: relative;
+        display: inline-block;
+        font-weight: 400;
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+        height: 32px;
+        padding: 4px 15px;
+        font-size: 14px;
+      }
+      button:hover,
+      button:focus {
+        color: #fff;
+        border-color: #40a9ff;
+        background: #40a9ff;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="example-wrapper">
+      <div style="margin-bottom: 8px">
+        <button onclick="onFlushTransactions()">Flush Transactions</button>
+        <span id="eMessage"> </span>
+      </div>
+      <div id="myGrid" class="ag-theme-alpine"></div>
+    </div>
+    <script>
+      var __basePath = "./";
+    </script>
+    <script src="https://unpkg.com/ag-grid-enterprise@28.1.3/dist/ag-grid-enterprise.min.js"></script>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+  </body>
+  <link rel="stylesheet" href="styles.css" />
 </html>
