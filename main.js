@@ -1,154 +1,160 @@
-var UPDATE_COUNT = 20;
+var UPDATE_COUNT = 800;
 
 const columnDefs = [
   // these are the row groups, so they are all hidden (they are show in the group column)
   {
-    headerName: 'Product',
-    field: 'product',
+    headerName: "Unit",
+    field: "product",
     enableRowGroup: true,
     enablePivot: true,
-    rowGroupIndex: 0,
-    hide: true,
+    width: 200,
+    // rowGroupIndex: 0,
+    // hide: true,
   },
+  // {
+  //   headerName: "Portfolio",
+  //   field: "portfolio",
+  //   enableRowGroup: true,
+  //   enablePivot: true,
+  //   rowGroupIndex: 1,
+  //   hide: true,
+  // },
   {
-    headerName: 'Portfolio',
-    field: 'portfolio',
+    headerName: "Date Sysdate",
+    field: "book",
+    width: 200,
     enableRowGroup: true,
-    enablePivot: true,
-    rowGroupIndex: 1,
-    hide: true,
+    // enablePivot: true,
+    // rowGroupIndex: 1,
+    // hide: true,
   },
-  {
-    headerName: 'Book',
-    field: 'book',
-    enableRowGroup: true,
-    enablePivot: true,
-    rowGroupIndex: 2,
-    hide: true,
-  },
-  { headerName: 'Trade', field: 'trade', width: 100 },
+  { headerName: "Trade", field: "trade", width: 150 },
 
   // all the other columns (visible and not grouped)
   {
-    headerName: 'Current',
-    field: 'current',
+    headerName: "Current LMP",
+    field: "current",
     width: 200,
-    aggFunc: 'sum',
+    aggFunc: "sum",
     enableValue: true,
-    cellClass: 'number',
+    cellClass: "number",
     valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
+    cellRenderer: "agAnimateShowChangeCellRenderer",
   },
   {
-    headerName: 'Previous',
-    field: 'previous',
+    headerName: "Prev. LMP",
+    field: "previous",
     width: 200,
-    aggFunc: 'sum',
+    aggFunc: "sum",
     enableValue: true,
-    cellClass: 'number',
+    cellClass: "number",
     valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
+    cellRenderer: "agAnimateShowChangeCellRenderer",
   },
   {
-    headerName: 'Deal Type',
-    field: 'dealType',
+    headerName: "Current Output",
+    field: "dealType",
+    width: 200,
     enableRowGroup: true,
     enablePivot: true,
   },
+  // {
+  //   headerName: 'Bid',
+  //   field: 'bidFlag',
+  //   enableRowGroup: true,
+  //   enablePivot: true,
+  //   width: 100,
+  // },
   {
-    headerName: 'Bid',
-    field: 'bidFlag',
-    enableRowGroup: true,
-    enablePivot: true,
-    width: 100,
-  },
-  {
-    headerName: 'PL 1',
-    field: 'pl1',
-    width: 200,
-    aggFunc: 'sum',
+    headerName: "PL 1",
+    field: "pl1",
+    width: 150,
+    aggFunc: "sum",
     enableValue: true,
-    cellClass: 'number',
+    cellClass: "number",
     valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
+    cellRenderer: "agAnimateShowChangeCellRenderer",
   },
   {
-    headerName: 'PL 2',
-    field: 'pl2',
-    width: 200,
-    aggFunc: 'sum',
+    headerName: "PL 2",
+    field: "pl2",
+    width: 150,
+    aggFunc: "sum",
     enableValue: true,
-    cellClass: 'number',
+    cellClass: "number",
     valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
+    cellRenderer: "agAnimateShowChangeCellRenderer",
   },
-  {
-    headerName: 'Gain-DX',
-    field: 'gainDx',
-    width: 200,
-    aggFunc: 'sum',
-    enableValue: true,
-    cellClass: 'number',
-    valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
-  },
-  {
-    headerName: 'SX / PX',
-    field: 'sxPx',
-    width: 200,
-    aggFunc: 'sum',
-    enableValue: true,
-    cellClass: 'number',
-    valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
-  },
-  {
-    headerName: '99 Out',
-    field: '_99Out',
-    width: 200,
-    aggFunc: 'sum',
-    enableValue: true,
-    cellClass: 'number',
-    valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
-  },
-  {
-    headerName: 'Submitter ID',
-    field: 'submitterID',
-    width: 200,
-    aggFunc: 'sum',
-    enableValue: true,
-    cellClass: 'number',
-    valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
-  },
-  {
-    headerName: 'Submitted Deal ID',
-    field: 'submitterDealID',
-    width: 200,
-    aggFunc: 'sum',
-    enableValue: true,
-    cellClass: 'number',
-    valueFormatter: numberCellFormatter,
-    cellRenderer: 'agAnimateShowChangeCellRenderer',
-  },
+  // {
+  //   headerName: 'Gain-DX',
+  //   field: 'gainDx',
+  //   width: 200,
+  //   aggFunc: 'sum',
+  //   enableValue: true,
+  //   cellClass: 'number',
+  //   valueFormatter: numberCellFormatter,
+  //   cellRenderer: 'agAnimateShowChangeCellRenderer',
+  // },
+  // {
+  //   headerName: 'SX / PX',
+  //   field: 'sxPx',
+  //   width: 200,
+  //   aggFunc: 'sum',
+  //   enableValue: true,
+  //   cellClass: 'number',
+  //   valueFormatter: numberCellFormatter,
+  //   cellRenderer: 'agAnimateShowChangeCellRenderer',
+  // },
+  // {
+  //   headerName: '99 Out',
+  //   field: '_99Out',
+  //   width: 200,
+  //   aggFunc: 'sum',
+  //   enableValue: true,
+  //   cellClass: 'number',
+  //   valueFormatter: numberCellFormatter,
+  //   cellRenderer: 'agAnimateShowChangeCellRenderer',
+  // },
+  // {
+  //   headerName: 'Submitter ID',
+  //   field: 'submitterID',
+  //   width: 200,
+  //   aggFunc: 'sum',
+  //   enableValue: true,
+  //   cellClass: 'number',
+  //   valueFormatter: numberCellFormatter,
+  //   cellRenderer: 'agAnimateShowChangeCellRenderer',
+  // },
+  // {
+  //   headerName: 'Submitted Deal ID',
+  //   field: 'submitterDealID',
+  //   width: 200,
+  //   aggFunc: 'sum',
+  //   enableValue: true,
+  //   cellClass: 'number',
+  //   valueFormatter: numberCellFormatter,
+  //   cellRenderer: 'agAnimateShowChangeCellRenderer',
+  // },
 ];
 
 function numberCellFormatter(params) {
-  return Math.floor(params.value)
-    .toString()
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  // return params.value?.toPrecision("2") || "";
+  return Number(params.value || 0)?.toFixed(2);
+  // return Math.floor(params.value)
+  // .toString()
+  // .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
 const gridOptions = {
   columnDefs: columnDefs,
   suppressAggFuncInHeader: true,
   animateRows: true,
-  rowGroupPanelShow: 'always',
-  pivotPanelShow: 'always',
-  asyncTransactionWaitMillis: 4000,
+  rowGroupPanelShow: "always",
+  pivotPanelShow: "always",
+  asyncTransactionWaitMillis: 1000,
   getRowId: (params) => {
-    return params.data.trade;
+    // return params.data.book + params.data.trade;
+    return "" + params.data.product + params.data.book + params.data.trade;
   },
   defaultColDef: {
     width: 120,
@@ -165,9 +171,9 @@ const gridOptions = {
   },
   onAsyncTransactionsFlushed: (e) => {
     console.log(
-      '========== onAsyncTransactionsFlushed: applied ' +
+      "========== onAsyncTransactionsFlushed: applied " +
         e.results.length +
-        ' transactions'
+        " transactions"
     );
   },
 };
@@ -195,15 +201,27 @@ function startFeed(api) {
       // copy previous to current value
       newItem.previous = newItem.current;
       // then create new current value
-      // newItem.current = Math.floor(Math.random() * 10) + 10;
-      newItem.current = Math.floor(Math.random() * (70 - 50 + 1)) + 50;
+      var random = Math.random() * (26 - 14 + 1) + 14 - 20;
+      if (newItem.current + random > 70) {
+        random = -1 * Math.abs(random);
+      } else if (newItem.current + random < 50) {
+        random = Math.abs(random);
+      }
+      newItem.current = newItem.current + +Number(random).toFixed(2);
+      // newItem.current = Math.floor(Math.random() * (70 - 50 + 1)) + 50;
       newItems.push(newItem);
+      updatedIndexes[index] = newItem;
+      // update in global
+      globalRowData[index].previous = newItem.previous;
+      globalRowData[index].current = newItem.current;
     }
     var resultCallback = function () {
-      console.log('transactionApplied() - ' + thisCount);
+      console.log("transactionApplied() - " + thisCount);
     };
     api.applyTransactionAsync({ update: newItems }, resultCallback);
-    console.log('applyTransactionAsync() - ' + thisCount);
+    updatedIndexes = {};
+    newItems = [];
+    console.log("applyTransactionAsync() - " + thisCount);
   }, 500);
 }
 
@@ -221,7 +239,7 @@ function copyObject(object) {
 }
 
 // after page is loaded, create the grid.
-document.addEventListener('DOMContentLoaded', function () {
-  var eGridDiv = document.querySelector('#myGrid');
+document.addEventListener("DOMContentLoaded", function () {
+  var eGridDiv = document.querySelector("#myGrid");
   new agGrid.Grid(eGridDiv, gridOptions);
 });
