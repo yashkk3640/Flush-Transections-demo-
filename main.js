@@ -20,7 +20,7 @@ const columnDefs = [
   //   hide: true,
   // },
   {
-    headerName: "Date Sysdate",
+    headerName: "Date",
     field: "book",
     width: 200,
     enableRowGroup: true,
@@ -28,7 +28,7 @@ const columnDefs = [
     // rowGroupIndex: 1,
     // hide: true,
   },
-  { headerName: "Trade", field: "trade", width: 150 },
+  { headerName: "Time", field: "trade", width: 150 },
 
   // all the other columns (visible and not grouped)
   {
@@ -50,13 +50,6 @@ const columnDefs = [
     cellClass: "number",
     valueFormatter: numberCellFormatter,
     cellRenderer: "agAnimateShowChangeCellRenderer",
-  },
-  {
-    headerName: "Current Output",
-    field: "dealType",
-    width: 200,
-    enableRowGroup: true,
-    enablePivot: true,
   },
   // {
   //   headerName: 'Bid',
